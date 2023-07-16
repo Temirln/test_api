@@ -27,8 +27,8 @@ def add_order():
     new_user = CustomUser.objects.create_user(email = "orderUser@gmail.com",username = "ordername",password = "orderpassword")
     product = Product.objects.create(title = "sugar",price = 14)
 
-    order = Order(user = new_user)
-    order.products.set(product)
+    order = Order.objects.create(user = new_user)
+    order.products.add(product)
     order.save()
     return order
 

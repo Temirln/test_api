@@ -79,6 +79,32 @@ def test_update_order_athenticated(authenticate,add_order,add_product):
 
     assert response.data['products'] == updated_order_data['products']
 
+
+@pytest.mark.django_db
+def test_delete_user_authenticate(authenticate,add_user):
+
+    response = authenticate.delete(f"/api/v1/user/{add_user.pk}")
+    print(response)
+
+    assert response.status_code == 204
+
+@pytest.mark.django_db
+def test_delete_order_authenticate(authenticate,add_order):
+
+    response = authenticate.delete(f"/api/v1/order/{add_order.pk}")
+    print(response)
+
+    assert response.status_code == 204
+
+
+@pytest.mark.django_db
+def test_delete_product_authenticate(authenticate,add_product):
+
+    response = authenticate.delete(f"/api/v1/product/{add_product.pk}")
+    print(response)
+
+    assert response.status_code == 204
+
 # client = Client()
 
 # # class TestGetRequestUserProductOrder(TransactionTestCase):

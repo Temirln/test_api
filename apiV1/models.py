@@ -54,7 +54,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=9,decimal_places=2)
+    price = models.DecimalField(max_digits=9,decimal_places=0)
     
 
     def __str__(self) -> str:
